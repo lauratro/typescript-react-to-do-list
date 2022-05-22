@@ -19,18 +19,29 @@ const SingleTodo: React.FC<Props> = ({todo, todos, setTodos})=>{
   const handleDelete = (id:number)=>{
       setTodos(todos.filter(todo=>todo.id !==id))
   }
-  return <form className="todos__single">
-      {todo.isDone ?(
-        <s className="todos__single--text">{todo.todo}</s>
+  return (<form className="todos__single">
+
+      {
+      edit ?(
+          <input value={editTodo} onChange={(e)=>setEditTodo(e.target.value)} className="todos__single--text"/>
       ):(
-        <span className="todos__single--text">{todo.todo}</span>
+             todo.isDone ?(
+                <s className="todos__single--text">{todo.todo}</s>
+              ):(
+                <span className="todos__single--text">{todo.todo}</span>
+              )
       )}
+   
         
     <div>
         <span className="icon" onClick={()=>handleDelete(todo.id)}><AiFillDelete/></span>
-        <span className="icon"><AiFillEdit/></span>
+        <span className="icon" onClick={()=>{
+            if(!edit && !todo.isDone){
+                setEdit(!edit)
+            }
+        }}><AiFillEdit/></span>
         <span className="icon" onClick={()=>handleDone(todo.id)}><MdDone/></span>
     </div>
-    </form>
+    </form>)
 }
 export default SingleTodo;
