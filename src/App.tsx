@@ -11,6 +11,8 @@ let App: React.FC = () => {
 
   const handleAdd = (e:React.FormEvent):void=>{
 e.preventDefault()
+setTodos([...todos,{id: Date.now(),todo:todo, isDone:false}])
+
   }
   return (
     <div className="App">
