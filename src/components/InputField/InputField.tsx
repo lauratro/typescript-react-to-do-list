@@ -7,7 +7,7 @@ handleAdd:(e:React.FormEvent)=>void,
 }
 export default function InputField({todo, setTodo, handleAdd}:Props) {
   return (
-      <form className='input' onSubmit={handleAdd}>
+      <form className='input' onSubmit={(e)=>handleAdd(e)}>
    <input type="input"
    value={todo}
    onChange={(e)=>setTodo(e.target.value)}
