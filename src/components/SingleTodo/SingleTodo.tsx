@@ -6,6 +6,8 @@ todos:Todo[]
 setTodos:React.Dispatch<React.SetStateAction<Todo[]>>
 }
 const SingleTodo: React.FC<Props> = ({todo, todos, setTodos})=>{
-    return <div></div>
+    return <form className="todos__single">
+        <span className="todos__single--text">{todo.todo}</span>
+    </form>
 }
 export default SingleTodo;
