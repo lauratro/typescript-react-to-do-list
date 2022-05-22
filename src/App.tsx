@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import InputField from './components/InputField/InputField';
 import {Todo} from "./model"
+import TodoList from './components/TodoList/TodoList';
 
 
 import './App.css';
@@ -23,6 +24,7 @@ console.log("test")
     <div className="App">
    <span className="heading">Taskify</span>
    <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
+<TodoList todos ={todos} setTodos={setTodos} />
     </div>
   );
 }
