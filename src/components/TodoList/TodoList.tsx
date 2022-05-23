@@ -2,6 +2,7 @@ import React from "react"
 import "./TodoList.css"
 import {Todo} from "./../../model"
 import SingleTodo from "./../SingleTodo/SingleTodo"
+import { Droppable } from "react-beautiful-dnd"
 interface Props{
     todos:Todo[],
     setTodos:React.Dispatch<React.SetStateAction<Todo[]>>
@@ -12,7 +13,9 @@ let TodoList: React.FC<Props> = ({todos,setTodos,completedTodos,setCompletedTodo
     console.log(todos)
 return(
 <div className="container">
- <div className="todos">
+    <Droppable droppableId="TodosList">
+{(provided)=>(
+    <div className="todos" ref={provided.innerRef} {...provided.droppableProps}>
    <span className="todos__heading">
        Active Tasks
    </span>
@@ -20,7 +23,13 @@ return(
             <SingleTodo todo={todo} key={todo.id} todos={todos} setTodos ={setTodos} />
         ))}
  </div>
- <div className="todos remove"> 
+)}
+
+ 
+ </Droppable>
+ <Droppable droppableId="CompletedTodosList">
+     {(provided)=>(
+ <div className="todos remove" ref={provided.innerRef} {...provided.droppableProps}> 
  <span className="todos__heading">
       Completed task
    </span>
@@ -28,7 +37,10 @@ return(
             <SingleTodo todo={todo} key={todo.id} todos={todos} setTodos ={setTodos} />
         ))}
 
-</div> 
+</div>
+     )}
+ 
+</Droppable>
 </div>)
 }
 export default TodoList;
