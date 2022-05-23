@@ -9,7 +9,7 @@ import './App.css';
 let App: React.FC = () => {
   let [todo, setTodo] = useState<string>("");
   let [todos, setTodos] = useState<Todo[]>([])
-
+  let [completedTodos, setCompletedTodos]=useState<Todo[]>([])
   const handleAdd = (e:React.FormEvent):void=>{
 e.preventDefault()
 if(todo){
@@ -24,7 +24,7 @@ setTodo("")
     <div className="App">
    <span className="heading">Taskify</span>
    <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
-<TodoList todos ={todos} setTodos={setTodos} />
+<TodoList todos ={todos} setTodos={setTodos} completedTodos={completedTodos} setCompletedTodos={setCompletedTodos} />
     </div>
   );
 }
