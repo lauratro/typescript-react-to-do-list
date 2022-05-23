@@ -1,6 +1,20 @@
 .todos{
     display:flex;
-    justify-content: space-evenly;
-    width:90%;
-    flex-wrap: wrap;
+    width:47%;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: aqua;
+  
+}
+.todos__heading{
+    color:white;
+    font-size: 30px;
+}
+.container{
+    display: flex;
+    width: 95%;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: flex-start;
 }

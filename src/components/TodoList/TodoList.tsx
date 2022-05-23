@@ -18,7 +18,7 @@ return(
             <SingleTodo todo={todo} key={todo.id} todos={todos} setTodos ={setTodos} />
         ))}
  </div>
- <div className="todos remove"></div>  
+ <div className="todos remove"> 
  <span className="todos__heading">
       Completed task
    </span>
@@ -26,7 +26,7 @@ return(
             <SingleTodo todo={todo} key={todo.id} todos={todos} setTodos ={setTodos} />
         ))}
 
-
+</div> 
 </div>)
 }
 export default TodoList;

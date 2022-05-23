@@ -1,10 +1,14 @@
 .todos__single{
     display: flex;
-    width:29%;
     border-radius: 5px;
     padding:20px;
     margin-top:15px;
     background-image: url('https://img.freepik.com/fotos-kostenlos/goldener-gelber-nahtloser-venetianischer-gipshintergrund_24972-294.jpg?t=st=1653216803~exp=1653217403~hmac=ab0de15c3b546c33c35957c2d8263280008c00cca66e576f9baf94e7fb0bdeb9&w=900');
+    transition:0.2s,
+}
+.todos__single:hover{
+    box-shadow: 0 0 5px black;
+    transform: scale(1.03);
 }
 .todos__single--text{
     flex:1;
@@ -20,14 +24,24 @@
     font-size:25px;
     cursor:pointer
 }
+@media(max-width:1100px){
+.todos{
+    width:45;
+}
+}
 @media(max-width:700px){
     .input{
         width:95%;
     }
     .todos{
         width:95%;
+        margin-bottom: 10px;
     }
-    .todos__single{
-        width:100%;
-    }
+  .container{
+      width: 95%;
+      flex-direction: column;
+  }
+}
+.remove{
+    background-color: coral;
 }
