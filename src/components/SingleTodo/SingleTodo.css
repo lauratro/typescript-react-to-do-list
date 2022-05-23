@@ -46,3 +46,6 @@
 .remove{
     background-color: coral;
 }
+.drag{
+    box-shadow: 0 0 20px black;
+}
