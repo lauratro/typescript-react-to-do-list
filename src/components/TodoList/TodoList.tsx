@@ -27,13 +27,13 @@ return(
 
  
  </Droppable>
- <Droppable droppableId="CompletedTodosList">
+ <Droppable droppableId="CompletedTodos">
      {(provided)=>(
  <div className="todos remove" ref={provided.innerRef} {...provided.droppableProps}> 
  <span className="todos__heading">
       Completed task
    </span>
-   {todos.map((todo,index)=>(
+   {completedTodos.map((todo,index)=>(
             <SingleTodo index={index} todo={todo} key={todo.id} todos={completedTodos} setTodos ={setCompletedTodos} />
         ))}
 
