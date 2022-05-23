@@ -2,9 +2,9 @@ import React,{useState} from 'react';
 import InputField from './components/InputField/InputField';
 import {Todo} from "./model"
 import TodoList from './components/TodoList/TodoList';
-
-
+import { DragDropContext } from 'react-beautiful-dnd';
 import './App.css';
+
 
 let App: React.FC = () => {
   let [todo, setTodo] = useState<string>("");
@@ -21,11 +21,13 @@ setTodo("")
   }
  
   return (
+    <DragDropContext onDragEnd={()=>{}}>
     <div className="App">
    <span className="heading">Taskify</span>
    <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
 <TodoList todos ={todos} setTodos={setTodos} completedTodos={completedTodos} setCompletedTodos={setCompletedTodos} />
     </div>
+    </DragDropContext>
   );
 }
 
