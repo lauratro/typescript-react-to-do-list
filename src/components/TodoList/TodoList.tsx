@@ -34,7 +34,7 @@ return(
       Completed task
    </span>
    {todos.map(todo=>(
-            <SingleTodo todo={todo} key={todo.id} todos={todos} setTodos ={setTodos} />
+            <SingleTodo todo={todo} key={todo.id} todos={completedTodos} setTodos ={setCompletedTodos} />
         ))}
 
 </div>

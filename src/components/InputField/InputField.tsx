@@ -10,7 +10,8 @@ export default function InputField({todo, setTodo, handleAdd}:Props) {
   return (
       <form className='input' onSubmit={(e)=>{
       handleAdd(e);
-      inputRef.current?.blur()}}>
+     // inputRef.current?.blur()
+    }}>
    <input
      ref={inputRef}
     type="input"
