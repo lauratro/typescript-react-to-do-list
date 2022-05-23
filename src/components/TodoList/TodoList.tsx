@@ -19,8 +19,8 @@ return(
    <span className="todos__heading">
        Active Tasks
    </span>
-   {todos.map(todo=>(
-            <SingleTodo todo={todo} key={todo.id} todos={todos} setTodos ={setTodos} />
+   {todos.map((todo,index)=>(
+            <SingleTodo index={index} todo={todo} key={todo.id} todos={todos} setTodos ={setTodos} />
         ))}
  </div>
 )}
@@ -33,8 +33,8 @@ return(
  <span className="todos__heading">
       Completed task
    </span>
-   {todos.map(todo=>(
-            <SingleTodo todo={todo} key={todo.id} todos={completedTodos} setTodos ={setCompletedTodos} />
+   {todos.map((todo,index)=>(
+            <SingleTodo index={index} todo={todo} key={todo.id} todos={completedTodos} setTodos ={setCompletedTodos} />
         ))}
 
 </div>

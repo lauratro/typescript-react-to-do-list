@@ -3,14 +3,16 @@ import {Todo} from "./../../model";
 import {AiFillDelete,AiFillEdit} from "react-icons/ai"
 import {MdDone} from "react-icons/md";
 import "./SingleTodo.css"
+import { Draggable } from "react-beautiful-dnd";
 
 
 interface Props{
+index:number,
 todo:Todo,
 todos:Todo[]
 setTodos:React.Dispatch<React.SetStateAction<Todo[]>>
 }
-const SingleTodo: React.FC<Props> = ({todo, todos, setTodos})=>{
+const SingleTodo: React.FC<Props> = ({index,todo, todos, setTodos})=>{
  let [edit, setEdit]=useState<boolean>(false);
  const [editTodo, setEditTodo] = useState<string>(todo.todo)
     const handleDone = (id:number)=>{
@@ -29,9 +31,13 @@ const SingleTodo: React.FC<Props> = ({todo, todos, setTodos})=>{
   const inputRef = useRef<HTMLInputElement>(null)
 /*   useEffect(() => {
     inputRef.current?.focus()
-  }, [edit]) */
+  }, [edit])  */
   
-  return (<form className="todos__single" onSubmit={(e)=>handleEdit(e,todo.id)}>
+  return (
+  <Draggable draggableId={todo.id.toString()} index={index}>
+
+      {()=>(
+  <form className="todos__single" onSubmit={(e)=>handleEdit(e,todo.id)}>
 
       {
       edit ?(
@@ -54,6 +60,8 @@ const SingleTodo: React.FC<Props> = ({todo, todos, setTodos})=>{
         }}><AiFillEdit/></span>
         <span className="icon" onClick={()=>handleDone(todo.id)}><MdDone/></span>
     </div>
-    </form>)
+    </form>
+    )}
+    </Draggable>)
 }
 export default SingleTodo;
